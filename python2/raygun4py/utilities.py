@@ -16,7 +16,7 @@ def filter_keys(filtered_keys, object):
         iteration_target = object.__dict__
 
     for key in iteration_target.iterkeys():
-        if key in filtered_keys:
+        if key in filtered_keys or 'secret' in key.lower() or 'password' in key.lower():
             iteration_target[key] = '<filtered>'
 
         elif isinstance(iteration_target[key], dict):

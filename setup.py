@@ -1,5 +1,6 @@
 import sys
 from setuptools import setup
+import os
 
 packages = ['raygun4py', 'raygun4py.middleware']
 
@@ -9,11 +10,13 @@ elif sys.version_info[0] == 3:
     base_dir = 'python3'
 
 setup(
-    name='raygun4py',
-    version='3.1.2',
+    name='raygun4py_alt',
+    version='3.1.3',
     packages=packages,
     package_dir= {
-        "raygun4py": base_dir + "/raygun4py"
+        "raygun4py": os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  base_dir,
+                                  'raygun4py')
     },
     license='LICENSE',
     url='https://raygun.io',
